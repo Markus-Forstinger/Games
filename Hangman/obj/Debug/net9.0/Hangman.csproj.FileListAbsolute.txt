@@ -1,0 +1,16 @@
+/Users/pascal/Library/Mobile Documents/com~apple~CloudDocs/Schule/1AHIF/Programmieren/Final Project/Games/Hangman/bin/Debug/net9.0/words.txt
+/Users/pascal/Library/Mobile Documents/com~apple~CloudDocs/Schule/1AHIF/Programmieren/Final Project/Games/Hangman/bin/Debug/net9.0/Hangman
+/Users/pascal/Library/Mobile Documents/com~apple~CloudDocs/Schule/1AHIF/Programmieren/Final Project/Games/Hangman/bin/Debug/net9.0/Hangman.deps.json
+/Users/pascal/Library/Mobile Documents/com~apple~CloudDocs/Schule/1AHIF/Programmieren/Final Project/Games/Hangman/bin/Debug/net9.0/Hangman.runtimeconfig.json
+/Users/pascal/Library/Mobile Documents/com~apple~CloudDocs/Schule/1AHIF/Programmieren/Final Project/Games/Hangman/bin/Debug/net9.0/Hangman.dll
+/Users/pascal/Library/Mobile Documents/com~apple~CloudDocs/Schule/1AHIF/Programmieren/Final Project/Games/Hangman/bin/Debug/net9.0/Hangman.pdb
+/Users/pascal/Library/Mobile Documents/com~apple~CloudDocs/Schule/1AHIF/Programmieren/Final Project/Games/Hangman/obj/Debug/net9.0/Hangman.GeneratedMSBuildEditorConfig.editorconfig
+/Users/pascal/Library/Mobile Documents/com~apple~CloudDocs/Schule/1AHIF/Programmieren/Final Project/Games/Hangman/obj/Debug/net9.0/Hangman.AssemblyInfoInputs.cache
+/Users/pascal/Library/Mobile Documents/com~apple~CloudDocs/Schule/1AHIF/Programmieren/Final Project/Games/Hangman/obj/Debug/net9.0/Hangman.AssemblyInfo.cs
+/Users/pascal/Library/Mobile Documents/com~apple~CloudDocs/Schule/1AHIF/Programmieren/Final Project/Games/Hangman/obj/Debug/net9.0/Hangman.csproj.CoreCompileInputs.cache
+/Users/pascal/Library/Mobile Documents/com~apple~CloudDocs/Schule/1AHIF/Programmieren/Final Project/Games/Hangman/obj/Debug/net9.0/Hangman.sourcelink.json
+/Users/pascal/Library/Mobile Documents/com~apple~CloudDocs/Schule/1AHIF/Programmieren/Final Project/Games/Hangman/obj/Debug/net9.0/Hangman.dll
+/Users/pascal/Library/Mobile Documents/com~apple~CloudDocs/Schule/1AHIF/Programmieren/Final Project/Games/Hangman/obj/Debug/net9.0/refint/Hangman.dll
+/Users/pascal/Library/Mobile Documents/com~apple~CloudDocs/Schule/1AHIF/Programmieren/Final Project/Games/Hangman/obj/Debug/net9.0/Hangman.pdb
+/Users/pascal/Library/Mobile Documents/com~apple~CloudDocs/Schule/1AHIF/Programmieren/Final Project/Games/Hangman/obj/Debug/net9.0/Hangman.genruntimeconfig.cache
+/Users/pascal/Library/Mobile Documents/com~apple~CloudDocs/Schule/1AHIF/Programmieren/Final Project/Games/Hangman/obj/Debug/net9.0/ref/Hangman.dll
