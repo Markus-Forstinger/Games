@@ -1,0 +1,72 @@
+# Build-Ergebnisse
+bin/
+obj/
+
+# Benutzer- und IDE-Dateien
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / JetBrains
+.idea/
+
+# Logs
+*.log
+
+# NuGet
+packages/
+*.nupkg
+.nuget/
+
+# Test-Ergebnisse
+TestResults/
+*.trx
+
+# Veröffentlichungen
+publish/
+
+# Temporäre Dateien
+tmp/
+temp/
+
+# OS-Dateien
+.DS_Store
+Thumbs.db
+
+# DotCover / Coverage
+*.coverage
+*.coveragexml
+
+# Resharper
+_ReSharper*/
+*.ReSharper
+
+# Visual Studio Cache
+.vshistory/
+
+# Azure
+*.PublishSettings
+
+# SQLite lokal
+*.db
+*.db-shm
+*.db-wal
+
+# Secrets / lokale Config
+appsettings.Development.json
+secrets.json
+.env
+.env.*
+
+# Node (falls Frontend enthalten)
+node_modules/
+dist/
+
+# Generated files
+Generated/
+
+# Mac
+.DS_Store
