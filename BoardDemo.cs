@@ -64,8 +64,53 @@ public static class BoardDemo
     }*/
     public static void Run()
     {
-        Board.Init(9, 9, "Battleship", cellWidth: 80, cellHeight: 70, fontSize: 32);
+        Board.Init(19, 9, "Battleship", cellWidth: 80, cellHeight: 70, fontSize: 32);
+        bool playersTurn = true;
         
+        for(int i = 0; i< 9;i++)
+        {
+            Board.SetText(i,9, "-");
+        }
+        
+
+        for(int i = 0; i< 5; i++)
+        {
+            while(playersTurn)
+            {
+                Console.WriteLine($"Place your {i+2}x1 ship");
+                var( row, col) = Board.WaitForClick();
+
+                if (row >= 0 && row <= 8 && col >= 0 && col <= 8)
+                {
+                    bool directory = false;
+
+                    while(!directory)
+                    {
+                        var( row1, col1) = Board.WaitForClick();
+                        
+                        if(row1 == row || col1 == col)
+                        {
+                            directory = true;
+                            
+                            for(int j = 0; j< i+2; j++)
+                            {
+                                Board.SetText(row, col, "x");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Wrong directory");
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Bad Input");
+                }
+            }
+        }
+
+
         string currentPlayer = "X";
         string playerColor = "Red";
         int moves = 0;
