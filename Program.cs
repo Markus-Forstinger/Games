@@ -41,9 +41,9 @@ if (game != "")
 {
     ProcessStartInfo info = new ProcessStartInfo
     {
-        FileName = game,
+        FileName = "dotnet",
         Arguments = "run",
-        WorkingDirectory = "game",
+        WorkingDirectory = $"game/{game}",
         UseShellExecute = true
     };
 
