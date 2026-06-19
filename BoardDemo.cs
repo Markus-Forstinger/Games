@@ -64,7 +64,7 @@ public static class BoardDemo
     }*/
     public static void Run()
     {
-        Board.Init(19, 9, "Battleship", cellWidth: 80, cellHeight: 70, fontSize: 32);
+        Board.Init(9, 19, "Battleship", cellWidth: 80, cellHeight: 70, fontSize: 32);
         bool playersTurn = true;
         
         for(int i = 0; i< 9;i++)
@@ -105,98 +105,13 @@ public static class BoardDemo
                 }
                 else
                 {
-                    Console.WriteLine("Bad Input");
+                    Console.WriteLine("Invalid Input");
                 }
             }
         }
 
 
-        string currentPlayer = "X";
-        string playerColor = "Red";
-        int moves = 0;
-        bool isGameActive = true;
-
-        while (isGameActive)
-        {
-           var( row, col) = Board.WaitForClick();
-
-            if (row < 0)
-            {
-                isGameActive = false;
-            }
-            else if (Board.GetText(row, col) != "")
-            {
-                Console.WriteLine("This cell is already occupied! Choose another one.");
-            }
-            else
-            {
-                Board.SetText(row, col, currentPlayer, playerColor);
-                moves++;
-
-                if (CheckWin(currentPlayer) || moves == 9)
-                {
-                    if (CheckWin(currentPlayer))
-                    {
-                        Console.WriteLine($"Player {currentPlayer} won!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Draw!");
-                    }
-                    
-                    Console.WriteLine("The game is over. Click once more on the board to exit.");
-                    Board.WaitForClick();
-                    Board.Exit();
-                    isGameActive = false;
-                }
-                else
-                {
-                    if (currentPlayer == "X")
-                    {
-                        currentPlayer = "O";
-                        playerColor = "Green";
-                    }
-                    else
-                    {
-                        currentPlayer = "X";
-                        playerColor = "Red";
-                    }
-                    Console.WriteLine($"Player {currentPlayer}'s turn.");
-                }
-            }
-        }
-    }
-
-    private static bool CheckWin(string player)
-    {
-        for (int row = 0; row < 3; row++)
-        {
-            if (Board.GetText(row, 0) == player && Board.GetText(row, 1) == player && Board.GetText(row, 2) == player)
-            {
-                return true;
-            }
-        }
-
-        for (int column = 0; column < 3; column++)
-        {
-            if (Board.GetText(0, column) == player && Board.GetText(1, column) == player && Board.GetText(2, column) == player)
-            {
-                return true;
-            }
-        }
-
-        if (Board.GetText(0, 0) == player && Board.GetText(1, 1) == player && Board.GetText(2, 2) == player)
-        {
-            return true;
-        }
-
-        if (Board.GetText(0, 2) == player && Board.GetText(1, 1) == player && Board.GetText(2, 0) == player)
-        {
-            return true;
-        }
-
-        return false;
-    }
+        
 }
 
 
