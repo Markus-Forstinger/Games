@@ -64,7 +64,7 @@ public static class BoardDemo
     }*/
     public static void Run()
     {
-        Board.Init(9, 19, "Battleship", cellWidth: 80, cellHeight: 70, fontSize: 32);
+        Board.Init(19, 9, "Battleship", cellWidth: 34, cellHeight: 22);
         bool playersTurn = true;
         
         for(int i = 0; i< 9;i++)
