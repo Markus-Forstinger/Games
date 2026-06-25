@@ -79,7 +79,12 @@ while (true)
 
         if (File.Exists(exePath))
         {
-            Process.Start(new ProcessStartInfo { FileName = exePath, UseShellExecute = true });
+            Process.Start(new ProcessStartInfo 
+{ 
+                FileName = exePath, 
+                UseShellExecute = false,
+                CreateNoWindow = true
+            });
         }
         else
         {

@@ -9,6 +9,8 @@
 
   <ItemGroup>
     <Compile Remove="TicTacToe\**\*.cs" />
+    <Compile Remove="Battleship\**\*.cs" />
+    <Compile Remove="Hangman\**\*.cs" />
   </ItemGroup>
 
 </Project>
