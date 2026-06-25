@@ -1,13 +1,7 @@
-using Avalonia;
-using BoardTest;
-using System.Threading;
-
-// Avalonia must own the main thread. The demo logic runs on a background thread.
-Thread logicThread = new Thread(BoardDemo.Run) { IsBackground = true };
-logicThread.Start();
+﻿using Avalonia;
+using BoardTest;    
 
 AppBuilder.Configure<App>()
-
     .UsePlatformDetect()
     .LogToTrace()
-    .StartWithClassicDesktopLifetime(args);
+    .StartWithClassicDesktopLifetime(args);   

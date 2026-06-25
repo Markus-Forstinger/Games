@@ -1,51 +1,62 @@
 ﻿using System.Diagnostics;
 
-Console.WriteLine(@"
-  ╔══════════════════════════════════╗
-  ║   Welcome to  the Game Suite     ║
-  ╚══════════════════════════════════╝");
-
-Console.WriteLine("Which game to you want to play?");
-int choice;
-
-Console.WriteLine(@"
-Which game to you want to play?
-
-1. Tic Tac Toe
-2. Battleship
-3. Hangman");
-
-choice = Convert.ToInt32(Console.ReadLine());
-string game = "";
-
-switch (choice)
+while (true)
 {
-    case 1:
-        game = "TicTacToe";
-        break;
+    Console.Clear();
 
-    case 2:
-        game = "Battleship";
-        break;
-    
-    case 3:
-        game = "Hangman";
-        break;
-    
-    default:
-        Console.WriteLine("Choose a Game in the list.");
-        break;
-}
+    Console.WriteLine(@"
+╔══════════════════════════════════╗
+║        Welcome Game Suite        ║
+╚══════════════════════════════════╝");
 
-if (game != "")
-{
-    ProcessStartInfo info = new ProcessStartInfo
+    Console.WriteLine();
+    Console.WriteLine("1. Tic Tac Toe");
+    Console.WriteLine("2. Battleship");
+    Console.WriteLine("3. Hangman");
+    Console.WriteLine("0. Exit");
+    Console.WriteLine();
+
+    Console.Write("Choice: ");
+
+    if (!int.TryParse(Console.ReadLine(), out int choice))
     {
-        FileName = "dotnet",
-        Arguments = "run",
-        WorkingDirectory = $"game/{game}",
-        UseShellExecute = true
+        Console.WriteLine("Invalid Input!");
+        Console.ReadKey();
+        continue;
+    }
+
+    string? game = choice switch
+    {
+        1 => "TicTacToe",
+        2 => "Battleship",
+        3 => "Hangman",
+        0 => null,
+        _ => ""
     };
 
-    Process.Start(info);
-}
+    if (choice == 0)
+        break;
+
+    if (game == "")
+    {
+        Console.WriteLine("Choose a valid game!");
+        Console.ReadKey();
+        continue;
+    }
+
+    try
+    {
+        Process.Start(new ProcessStartInfo
+        {
+            FileName = "dotnet",
+            Arguments = "run",
+            WorkingDirectory = $"game/{game}",
+            UseShellExecute = true
+        });
+    }
+    catch
+    {
+        Console.WriteLine("Game not found!");
+        Console.ReadKey();
+    }
+}   
