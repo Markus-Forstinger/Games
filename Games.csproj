@@ -8,9 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="TicTacToe\**\*.cs" />
     <Compile Remove="Battleship\**\*.cs" />
     <Compile Remove="Hangman\**\*.cs" />
+    <Compile Remove="TicTacToe\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="Battleship\Battleship.csproj" />
   </ItemGroup>
 
 </Project>

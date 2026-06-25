@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.IO;
 
 while (true)
@@ -52,6 +53,16 @@ while (true)
 
     try
     {
+        if (choice == 3)
+        {
+            global::BoardTest.Hangman.Run();
+            continue; 
+        }
+        else if (choice == 2)
+        {
+            BoardTest.BoardDemo.Run();
+            continue;
+        }
         if (!File.Exists(exePath))
         {
             Console.WriteLine($"Building {gameFolder}...");
@@ -80,7 +91,7 @@ while (true)
         if (File.Exists(exePath))
         {
             Process.Start(new ProcessStartInfo 
-{ 
+            { 
                 FileName = exePath, 
                 UseShellExecute = false,
                 CreateNoWindow = true
@@ -97,4 +108,4 @@ while (true)
         Console.WriteLine($"Error: {ex.Message}");
         Console.ReadKey();
     }
-}   
+}
