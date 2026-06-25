@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 
 namespace BoardTest;
@@ -6,10 +7,12 @@ public static class BoardDemo
 {
     public static void Run()
     {
-        const int SIZE = 10;
+        // 1. Spielfeldgröße auf 10 setzen (0 bis 9)
+        const int SIZE = 10; 
         bool[,] ships = new bool[SIZE, SIZE];
         Random random = new();
 
+        // 2. Deine gewünschten Schiffe (2x1, 3x1, 4x1, 5x1)
         int[] shipSizes = { 2, 3, 4, 5 };
 
         foreach (int size in shipSizes)
@@ -42,11 +45,12 @@ public static class BoardDemo
             }
         }
 
+        // 3. Hier wird die 10 an dein Fenster übergeben!
         Board.Init(SIZE, SIZE, "Battleship", cellWidth: 50, cellHeight: 40, fontSize: 16);
 
         int hits = 0;
-        int totalShipCells = 2 + 3 + 4 + 5; // 14
-        int shots = 30;
+        int totalShipCells = 2 + 3 + 4 + 5; // 14 Treffepunkte
+        int shots = 18; // Deine 15-20 Versuche (hier genau 18)
 
         while (shots > 0 && hits < totalShipCells)
         {
