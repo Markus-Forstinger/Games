@@ -8,8 +8,8 @@ public static class BoardDemo
     public static void Run()
     {
         const int SIZE = 10; 
+        const int MAX_SHOTS = 50;
         bool[,] ships = new bool[SIZE, SIZE];
-        Random random = new();
 
         int[] shipSizes = { 2, 3, 4, 5 };
 
@@ -18,16 +18,20 @@ public static class BoardDemo
             bool placed = false;
             while (!placed)
             {
-                bool horizontal = random.Next(2) == 0;
-                int row = random.Next(SIZE - (horizontal ? 0 : size));
-                int col = random.Next(SIZE - (horizontal ? size : 0));
+                bool horizontal = Random.Shared.Next(2) == 0;
+                int row = Random.Shared.Next(SIZE - (horizontal ? 0 : size));
+                int col = Random.Shared.Next(SIZE - (horizontal ? size : 0));
 
                 bool fits = true;
                 for (int i = 0; i < size; i++)
                 {
                     int r = horizontal ? row : row + i;
                     int c = horizontal ? col + i : col;
-                    if (ships[r, c]) { fits = false; break; }
+                    if (ships[r, c])
+                    {   
+                        fits = false;
+                        break; 
+                    }
                 }
 
                 if (fits)
@@ -46,15 +50,18 @@ public static class BoardDemo
         Board.Init(SIZE, SIZE, "Battleship", cellWidth: 50, cellHeight: 40, fontSize: 16);
 
         int hits = 0;
-        int totalShipCells = 2 + 3 + 4 + 5; // 14
-        int shots = 20;
+        int totalShipCells = 2 + 3 + 4 + 5;
+        int shots = MAX_SHOTS;
 
         while (shots > 0 && hits < totalShipCells)
         {
             Console.WriteLine($"Shots left: {shots} | Hits: {hits}/{totalShipCells}");
 
             var (row, col) = Board.WaitForClick();
-            if (row < 0) return;
+            if (row < 0)
+            {
+                return;
+            } 
 
             string current = Board.GetText(row, col);
             if (current == "X" || current == "O")
@@ -73,14 +80,19 @@ public static class BoardDemo
             {
                 Board.SetText(row, col, "O", "Green");
                 Console.WriteLine("Miss!");
-                shots--;
+                shots--; 
             }
         }
 
         if (hits == totalShipCells)
+        {
             Console.WriteLine("You Win!");
+        }
         else
+        {
             Console.WriteLine("You Lose!");
+        }
+            
 
         Console.WriteLine("Click anywhere to exit.");
         Board.WaitForClick();
