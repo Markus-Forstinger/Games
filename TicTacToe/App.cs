@@ -1,4 +1,5 @@
 using Avalonia;
+using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Themes.Fluent;
 using System.Threading;
 
@@ -6,7 +7,7 @@ namespace BoardTest;
 
 public class App : Application
 {
-    internal static readonly ManualResetEventSlim Ready = new(false);
+    public static readonly ManualResetEventSlim Ready = new(false);
 
     public override void Initialize()
     {

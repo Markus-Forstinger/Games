@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.IO;
 
 while (true)
 {
@@ -25,38 +26,70 @@ while (true)
         continue;
     }
 
-    string? game = choice switch
+    if (choice == 0)
+        break;
+
+    string? gameFolder = choice switch
     {
         1 => "TicTacToe",
         2 => "Battleship",
         3 => "Hangman",
-        0 => null,
         _ => ""
     };
 
-    if (choice == 0)
-        break;
-
-    if (game == "")
+    if (gameFolder == "")
     {
         Console.WriteLine("Choose a valid game!");
         Console.ReadKey();
         continue;
     }
 
+    string csprojFile = choice == 1 ? "BoardTest-avalonia.csproj" : $"{gameFolder}.csproj";
+    string fullPath = Path.Combine(gameFolder, csprojFile);
+    
+    string exeName = choice == 1 ? "BoardTest-avalonia" : gameFolder;
+    string exePath = Path.Combine(gameFolder, "bin", "Debug", "net9.0", $"{exeName}.exe");
+
     try
     {
-        Process.Start(new ProcessStartInfo
+        if (!File.Exists(exePath))
         {
-            FileName = "dotnet",
-            Arguments = "run",
-            WorkingDirectory = $"game/{game}",
-            UseShellExecute = true
-        });
+            Console.WriteLine($"Building {gameFolder}...");
+            var build = Process.Start(new ProcessStartInfo
+            {
+                FileName = "dotnet",
+                Arguments = $"build \"{fullPath}\"",
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true
+            });
+            
+            if (build != null)
+            {
+                build.WaitForExit();
+                if (build.ExitCode != 0)
+                {
+                    string error = build.StandardError.ReadToEnd();
+                    Console.WriteLine($"Build failed: {error}");
+                    Console.ReadKey();
+                    continue;
+                }
+            }
+        }
+
+        if (File.Exists(exePath))
+        {
+            Process.Start(new ProcessStartInfo { FileName = exePath, UseShellExecute = true });
+        }
+        else
+        {
+            Console.WriteLine("EXE not found after build.");
+            Console.ReadKey();
+        }
     }
-    catch
+    catch (System.Exception ex)
     {
-        Console.WriteLine("Game not found!");
+        Console.WriteLine($"Error: {ex.Message}");
         Console.ReadKey();
     }
 }   
