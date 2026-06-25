@@ -60,7 +60,26 @@ while (true)
         }
         else if (choice == 2)
         {
-            BoardTest.BoardDemo.Run();
+            string battleshipDll = Path.Combine("Battleship", "bin", "Debug", "net9.0", "Battleship.dll");
+            
+            if (File.Exists(battleshipDll))
+            {
+                Console.WriteLine("Starte Battleship...");
+                var battleshipProcess = Process.Start(new ProcessStartInfo
+                {
+                    FileName = "dotnet",
+                    Arguments = $"\"{battleshipDll}\"",
+                    UseShellExecute = false,
+                    CreateNoWindow = false
+                });
+                
+                battleshipProcess?.WaitForExit();
+            }
+            else
+            {
+                Console.WriteLine("Battleship.dll wurde nicht gefunden. Bitte erst bauen!");
+                Console.ReadKey();
+            }
             continue;
         }
         if (!File.Exists(exePath))
