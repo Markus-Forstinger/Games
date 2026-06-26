@@ -6,6 +6,7 @@ public static class BoardDemo
 {
     public static void Run()
     {
+        //macht das Board
         Board.Init(3, 3, "Tic-Tac-Toe", cellWidth: 80, cellHeight: 70, fontSize: 32);
         
         string currentPlayer = "X";
@@ -13,6 +14,7 @@ public static class BoardDemo
         int moves = 0;
         bool isGameActive = true;
 
+        //das Spiel 1v1 TicTacToe
         while (isGameActive)
         {
             var (row, col) = Board.WaitForClick();
@@ -66,6 +68,7 @@ public static class BoardDemo
 
     private static bool CheckWin(string player)
     {
+        //für jede reihe schauen
         for (int row = 0; row < 3; row++)
         {
             if (Board.GetText(row, 0) == player && Board.GetText(row, 1) == player && Board.GetText(row, 2) == player)
@@ -73,7 +76,7 @@ public static class BoardDemo
                 return true;
             }
         }
-
+        //für jede Spalte
         for (int column = 0; column < 3; column++)
         {
             if (Board.GetText(0, column) == player && Board.GetText(1, column) == player && Board.GetText(2, column) == player)
@@ -81,12 +84,12 @@ public static class BoardDemo
                 return true;
             }
         }
-
+        //für diagonale 1
         if (Board.GetText(0, 0) == player && Board.GetText(1, 1) == player && Board.GetText(2, 2) == player)
         {
             return true;
         }
-
+        //für dieagonale 2
         if (Board.GetText(0, 2) == player && Board.GetText(1, 1) == player && Board.GetText(2, 0) == player)
         {
             return true;

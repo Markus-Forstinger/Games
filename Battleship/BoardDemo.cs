@@ -13,6 +13,7 @@ public static class BoardDemo
 
         int[] shipSizes = { 2, 3, 4, 5 };
 
+        //macht die zufällige Platzierung von den Schiffen
         foreach (int size in shipSizes)
         {
             bool placed = false;
@@ -23,17 +24,19 @@ public static class BoardDemo
                 int col = Random.Shared.Next(SIZE - (horizontal ? size : 0));
 
                 bool fits = true;
+                //macht die richtung(horizontal oder vertikal)
                 for (int i = 0; i < size; i++)
                 {
                     int r = horizontal ? row : row + i;
                     int c = horizontal ? col + i : col;
+                    //schaut ob anderes schiff da schon ist
                     if (ships[r, c])
                     {   
                         fits = false;
                         break; 
                     }
                 }
-
+                //wenn true macht es die schiffe an die richtige stelle
                 if (fits)
                 {
                     for (int i = 0; i < size; i++)
